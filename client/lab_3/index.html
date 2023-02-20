@@ -1,5 +1,53 @@
-<!--
-    Replace this with your working code from Lab 2, and include:
-    - The styles in this folder's `style.css`
-    - The script in script.js, which should be included via a `<script src="script.js" >` call before your closing </body> tag 
--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sydney Hatcher's Labs</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class = "wrapper">
+        <!-- wrapper -->
+      <header class="header"><h1>Sydney Hatcher's Labs for INST377</h1></header>
+      <div class = "container">
+        <!-- container -->
+        <div class="left_section box">
+            <!-- left inputs -->
+            <h3>Album Names</h3>
+            <ol class="box">
+                <li> Thank me Later - Drake</li>
+                <li> Take Care - Drake</li>
+                <li> Views - Drake</li>
+                <li> Finally Famous - Big Sean</li>
+                <li> Thank you, next - Ariana Grande</li>
+            </ol>
+        </div>
+        <div class="right_section box">
+            <!-- right inputs -->
+          <h3>Image Carousel</h3>
+          <div class="carousel">
+            <button class="prev">prev</button>
+            <div class="slides">
+                <!-- images box -->
+                <div class="carousel_item visible"><img id="slide_1" src="images/puppy1.jpg" alt="black lab puppy" /></div>
+                <div class="carousel_item hidden"><img id="slide_2" src="images/puppy2.jpg" alt="rottweiler mix puppy" /></div>
+                <div class="carousel_item hidden"><img id="slide_3" src="images/puppy3.jpg" alt="golden puppy" /></div>
+                <div class="carousel_item hidden"><img id="slide_4" src="images/puppy4.jpg" alt="doberman puppy" /></div>
+            </div>
+            <button class="next">next</button>
+          </div>
+          <div class="box">
+            <!-- description box -->
+            <p> Four cute photos of puppies </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+        <!-- footer -->
+      <a href="https://github.com/sydhat" target="_blank" rel="noopener noreferrer">SydHat Github</a>
+    </footer>
+    <script src="script.js" ></script>
+  </body>
+</html>
