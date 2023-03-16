@@ -35,7 +35,7 @@ body {
 
 
 a {
-  display: inline-block;
+  display: flex;
   text-decoration: none;
 }
 
@@ -88,7 +88,7 @@ form {
 */
 
 .header h1 {
-  display: block;
+  display: flex;
   /* this will push other blocks out of the way */
 
   /* colors */
