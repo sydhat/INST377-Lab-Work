@@ -38,25 +38,31 @@ function getRandomIntInclusive(min, max) {
     const filterDataButton = document.querySelector('#filter'); // Add a querySelector that targets your filter button here
     const loadDataButton = document.querySelector('#data_load');
     const generateListButton = document.querySelector('#generate');
-  
+    const textField = document.querySelector('#resto')
+
     const loadAnimation = document.querySelector('#data_load_animation');
     loadAnimation.style.display = 'none';
+    generateListButton.classList.add('hidden');
   
+    let storedList = [];
     let currentList = []; // this is "scoped" to the main event function
     
     /* We need to listen to an "event" to have something happen in our page - here we're listening for a "submit" */
     loadDataButton.addEventListener('click', async (submitEvent) => { // async has to be declared on every function that needs to "await" something
       console.log('Loading data'); // this is substituting for a "breakpoint" - it prints to the browser to tell us we successfully submitted the form
       loadAnimation.style.display = 'inline-block';
-  
+        
   
       // Basic GET request - this replaces the form Action
       const results = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
   
       // This changes the response from the GET into data we can use - an "object"
-      currentList = await results.json();
+      storedList = await results.json();
+      if (storedList.length > 0) {
+        generateListButton.classList.remove('hidden');
+    }
       loadAnimation.style.display = 'none';
-      console.table(currentList); 
+      console.table(storedList); 
       injectHTML(currentList);
     });
   
@@ -74,9 +80,16 @@ function getRandomIntInclusive(min, max) {
   
     generateListButton.addEventListener('click', (event) => {
       console.log('generate new list');
-      const restaurantsList = cutRestaurantList(currentList);
-      console.log(restaurantsList);
-      injectHTML(restaurantsList);
+      currentList = cutRestaurantList(storedList);
+      console.log(currentList);
+      injectHTML(currentList);
+    })
+
+    textField.addEventListener('input', (event) => {
+        console.log('input', event.target.value);
+        const newList = filterList(currentList, event.target.value);
+        console.log(newList);
+        injectHTML(newList);
     })
   }
   
